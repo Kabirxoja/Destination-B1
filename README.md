@@ -12,7 +12,7 @@ An Android app to learn and practice english vocabulary through interactive exer
 </p>
 
 # 📸 Screenshot
-<img width="2292" height="1396" alt="des" src="https://github.com/user-attachments/assets/dafb0fab-f17d-4f67-9df6-455fd59714ed" />
+<img width="2292" height="1145" alt="des" src="https://github.com/user-attachments/assets/d5daf219-8aec-4d88-bd34-3677be6157c4" />
 
 # ✨ Features
 - 🧠 Learn 1500+ words and phrases
