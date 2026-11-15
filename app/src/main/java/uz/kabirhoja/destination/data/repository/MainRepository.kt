@@ -3,20 +3,20 @@ package uz.kabirhoja.destination.data.repository
 import android.content.Context
 import android.util.Log
 import uz.kabirhoja.destination.data.local.VocabularyDao
-import uz.kabirhoja.destination.ui.additions.MainSharedPreference
+import uz.kabirhoja.destination.data.local.MainSharedPreference
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
-import uz.kabirhoja.destination.data.data.UpdatedNotes
-import uz.kabirhoja.destination.data.data.Vocabulary
+import uz.kabirhoja.destination.data.model.UpdatedNotes
+import uz.kabirhoja.destination.data.model.Vocabulary
 import uz.kabirhoja.destination.data.local.VocabularyEntity
 import java.io.IOException
 
 
-private const val UPDATE_JSON_VERSION = 1
+private const val UPDATE_JSON_VERSION = 2
 
 class MainRepository(
     private val dao: VocabularyDao,
@@ -41,10 +41,11 @@ class MainRepository(
     ): List<Vocabulary> {
         return withContext(Dispatchers.IO) {
             val language = sharedPreferences.getLanguage(context)
+            val unitStrings = units.map { it.toString() }
             if (language == "uz") {
-                dao.getFilteredUzbekWords(units, types)
+                dao.getFilteredUzbekWords(units, unitStrings, types)
             } else {
-                dao.getFilteredKarakalpakWords(units, types)
+                dao.getFilteredKarakalpakWords(units, unitStrings, types)
             }
         }
     }

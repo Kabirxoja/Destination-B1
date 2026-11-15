@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/navigation_test_choice"
-        android:name="uz.kabirhoja.destination.ui.fragments.ChoiceFragment"
+        android:name="uz.kabirhoja.destination.ui.test.ChoiceFragment"
         android:label="@string/nav_name_home"
         tools:layout="@layout/fragment_choice" >
         <action
@@ -21,13 +21,13 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="uz.kabirhoja.destination.ui.fragments.SearchFragment"
+        android:name="uz.kabirhoja.destination.ui.search.SearchFragment"
         android:label="@string/nav_name_search"
         tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="uz.kabirhoja.destination.ui.fragments.HomeFragment"
+        android:name="uz.kabirhoja.destination.ui.home.HomeFragment"
         android:label="@string/nav_name_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -37,13 +37,13 @@
 
     <fragment
         android:id="@+id/navigation_notes"
-        android:name="uz.kabirhoja.destination.ui.fragments.NotesFragment"
+        android:name="uz.kabirhoja.destination.ui.notes.NotesFragment"
         android:label="@string/nav_name_notes"
         tools:layout="@layout/fragment_notes" />
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="uz.kabirhoja.destination.ui.fragments.SettingsFragment"
+        android:name="uz.kabirhoja.destination.ui.settings.SettingsFragment"
         android:label="@string/nav_name_settings"
         tools:layout="@layout/fragment_settings" />
 
@@ -54,12 +54,12 @@
         tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/vocabularyFragment"
-        android:name="uz.kabirhoja.destination.ui.fragments.VocabularyFragment"
+        android:name="uz.kabirhoja.destination.ui.vocabulary.VocabularyFragment"
         android:label="fragment_vocabulary"
         tools:layout="@layout/fragment_vocabulary" />
     <fragment
         android:id="@+id/testFragment"
-        android:name="uz.kabirhoja.destination.ui.fragments.TestWriteFragment"
+        android:name="uz.kabirhoja.destination.ui.test.TestWriteFragment"
         android:label="fragment_test"
         tools:layout="@layout/fragment_test_write" >
         <action
@@ -69,22 +69,22 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="uz.kabirhoja.destination.ui.fragments.ResultFragment"
+        android:name="uz.kabirhoja.destination.ui.test.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" />
     <dialog
         android:id="@+id/bottomSheetSpeaker"
-        android:name="uz.kabirhoja.destination.ui.additions.BottomSheetSpeaker"
+        android:name="uz.kabirhoja.destination.ui.common.BottomSheetSpeaker"
         android:label="fragment_bottom_sheet_speaker"
         tools:layout="@layout/fragment_bottom_sheet_speaker" />
     <dialog
         android:id="@+id/bottomSheetLanguage"
-        android:name="uz.kabirhoja.destination.ui.additions.BottomSheetLanguage"
+        android:name="uz.kabirhoja.destination.ui.common.BottomSheetLanguage"
         android:label="fragment_bottom_sheet_language"
         tools:layout="@layout/fragment_bottom_sheet_language" />
     <fragment
         android:id="@+id/testChoiceFragment"
-        android:name="uz.kabirhoja.destination.ui.fragments.TestChoiceFragment"
+        android:name="uz.kabirhoja.destination.ui.test.TestChoiceFragment"
         android:label="fragment_test_option"
         tools:layout="@layout/fragment_test_option" >
         <action

@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
-import uz.kabirhoja.destination.data.data.Vocabulary
+import uz.kabirhoja.destination.data.model.Vocabulary
 
 @Dao
 interface VocabularyDao {
@@ -18,13 +18,13 @@ interface VocabularyDao {
     fun getWordsInKarakalpak(unit: String): Flow<List<Vocabulary>>
 
 
-    @Query("SELECT id, type AS type, unit, englishWord AS englishWord, karakalpakWord AS translatedWord, definition,exampleInEnglish AS exampleInEnglish, exampleInKarakalpak AS exampleTranslatedWord, isNoted from vocabulary WHERE unit IN (:unit) AND type IN (:type)")
-    suspend fun getFilteredKarakalpakWords(unit: List<Int>, type: List<String>): List<Vocabulary>
-    @Query("SELECT id, type AS type, unit, englishWord AS englishWord, uzbekWord AS translatedWord, definition,exampleInEnglish AS exampleInEnglish, exampleInUzbek AS exampleTranslatedWord, isNoted from vocabulary WHERE unit IN (:unit) AND type IN (:type)")
-    suspend fun getFilteredUzbekWords(unit: List<Int>, type: List<String>): List<Vocabulary>
+    @Query("SELECT id, type AS type, unit, englishWord AS englishWord, karakalpakWord AS translatedWord, definition,exampleInEnglish AS exampleInEnglish, exampleInKarakalpak AS exampleTranslatedWord, isNoted from vocabulary WHERE (unit IN (:unitInts) OR unit IN (:unitStrings)) AND type IN (:type)")
+    suspend fun getFilteredKarakalpakWords(unitInts: List<Int>, unitStrings: List<String>, type: List<String>): List<Vocabulary>
+    @Query("SELECT id, type AS type, unit, englishWord AS englishWord, uzbekWord AS translatedWord, definition,exampleInEnglish AS exampleInEnglish, exampleInUzbek AS exampleTranslatedWord, isNoted from vocabulary WHERE (unit IN (:unitInts) OR unit IN (:unitStrings)) AND type IN (:type)")
+    suspend fun getFilteredUzbekWords(unitInts: List<Int>, unitStrings: List<String>, type: List<String>): List<Vocabulary>
 
 
-    @Query("SELECT id, type AS type, unit, englishWord AS englishWord, karakalpakWord AS translatedWord, definition,exampleInEnglish AS exampleInEnglish, exampleInKarakalpak AS exampleTranslatedWord, isNoted from vocabulary WHERE englishWord LIKE '%' || :query || '%'")
+    @Query("SELECT id, type AS type, unit, englishWord AS englishWord, karakalpakWord AS translatedWord, definition,exampleInEnglish AS exampleInEnglish, exampleInUzbek AS exampleTranslatedWord, isNoted from vocabulary WHERE englishWord LIKE '%' || :query || '%'")
     suspend fun searchInKarakaplak(query: String): List<Vocabulary>
     @Query("SELECT id, type AS type, unit, englishWord AS englishWord, uzbekWord AS translatedWord, definition,exampleInEnglish AS exampleInEnglish, exampleInUzbek AS exampleTranslatedWord, isNoted from vocabulary WHERE englishWord LIKE '%' || :query || '%'")
     suspend fun searchInUzbek(query: String): List<Vocabulary>
